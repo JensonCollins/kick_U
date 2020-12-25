@@ -40,11 +40,11 @@ const deploy = async()=>{
     console.log(await factory.methods.getDeployedCampaigns().call());        
     
     
-    // console.log(await factory.methods.createCampaign('0')
-    // .send({
-    //     from: accounts[0],
-    //     gas: '1000000'
-    // }));    
+    console.log(await factory.methods.createCampaign('10')
+    .send({
+        from: accounts[0],
+        gas: '1000000'
+    }));    
     
     
     console.log(await factory.methods.getDeployedCampaigns().call());        
