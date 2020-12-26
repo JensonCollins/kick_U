@@ -1,10 +1,9 @@
-import { event } from 'jquery';
 import React, { Component } from 'react'
 import { Container, Button, Form, Input } from 'semantic-ui-react'
 import Layout from '../../components/Layouts'
 
-import factory from '../../eth/factory'
 import web3 from '../../eth/web3'
+import factory from '../../eth/factory'
 
 class CampaignNew extends Component {
 	state = {
@@ -14,15 +13,24 @@ class CampaignNew extends Component {
 	onSubmit = async (event)=>{
 		// Form submittal
 		event.preventDefault();
+		
+		
+		try {
+			const accounts = await new web3.eth.getAccounts();
+			console.log('Accounts returned are: ', accounts);
+			const res = await factory.methods
+			.createCampaign(this.state.minimumContribution)
+			.send({
+				from: accounts[0]
+			});
+		} catch (error) {
+			
+		}
 
-		const accounts = await web3.eth.getAccounts();
-		await factory.methods
-		.createCampaign(this.state.minimumContribution)
-		.send({
-			from: accounts[0]
-		});
 
 
+		console.log('Transaction successful.');
+		console.log(res);
 	}
 
 	render() {
