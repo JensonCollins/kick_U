@@ -30,10 +30,12 @@ const deploy = async()=>{
     // Deploying the contract on the blockchain network
     
     
+    console.log(result.options.address);
+
     return process.exit(1);
 };
 
 deploy();
 // Calling outside as await can't be used only inside a function
 
-// Deployed Contract address: '0xCC0F8a34B0e4ce5baac80c50E5bB1E4042dDED67'
+// Deployed Contract address: '0x4FDa7192f0d7b50F8f9DD10618856BdF03697AF4'
