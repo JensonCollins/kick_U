@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Button, Form, Input } from 'semantic-ui-react'
+import { Container, Button, Form, Input, Message } from 'semantic-ui-react'
 import Layout from '../../components/Layouts'
 
 import web3 from '../../eth/web3'
@@ -7,15 +7,16 @@ import factory from '../../eth/factory'
 
 class CampaignNew extends Component {
 	state = {
-		minimumContribution: ''
+		minimumContribution: '',
+		errorMessage: ''
 	};
 	
 	onSubmit = async (event)=>{
-		// Form submittal
-		event.preventDefault();
 		
 		
 		try {
+			// Form submittal
+			event.preventDefault();
 			const accounts = await new web3.eth.getAccounts();
 			console.log('Accounts returned are: ', accounts);
 			const res = await factory.methods
@@ -23,14 +24,15 @@ class CampaignNew extends Component {
 			.send({
 				from: accounts[0]
 			});
-		} catch (error) {
-			
+			console.log('Transaction successful.');
+			console.log(res);
+
+		} catch (err) {
+			this.setState({errorMessage: err.message});
 		}
 
 
 
-		console.log('Transaction successful.');
-		console.log(res);
 	}
 
 	render() {
@@ -38,7 +40,7 @@ class CampaignNew extends Component {
 			<Container>
 				<Layout>
 					<h1>Create a new Campaign page</h1>
-					<Form onSubmit={this.onSubmit}>
+					<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
 						<Form.Field>
 							<label>Minimum contribution</label>
 							<Input 
@@ -47,11 +49,14 @@ class CampaignNew extends Component {
 								placeholder='0' 
 								
 								value={this.state.minimumContribution}
-								onChange={event => this.setState({minimumContribution: event.target.value})}
+								onChange={event => {
+									this.setState({minimumContribution: event.target.value});
+									this.setState({errorMessage: ''});
+								}}
 							/>
 						
 						</Form.Field>
-
+						<Message error header="Oops!" content={this.state.errorMessage} />
 						<Button primary>Create</Button>
 					</Form>
 				</Layout>
