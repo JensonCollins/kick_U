@@ -3,9 +3,6 @@ const Web3 = require('web3');
 
 const CampaignFactory = require('./build/CampaignFactory.json');
 
-
-
-
 const seedPhrase = 'tube odor target consider time veteran derive umbrella cherry inflict hat twelve';
 // Can be used to generate many accounts, Has public and private keys, Sensitive information
 const infuraEndpoint = 'https://kovan.infura.io/v3/19b85f951b5a4440923fa8f61eb27245';
@@ -15,9 +12,7 @@ const provider = new HDWalletProvider(seedPhrase, infuraEndpoint);
 // Setting up the provider
 
 const web3 = new Web3(provider);
-//
-
-
+// new web3 provider
 
 const factory = new web3.eth.Contract(
     JSON.parse(CampaignFactory.interface),
@@ -25,12 +20,6 @@ const factory = new web3.eth.Contract(
 );
 //
 // Ready to play with the test blockchain network
-
-
-
-
-
-
 
 const deploy = async()=>{
     const accounts = await web3.eth.getAccounts();
@@ -52,4 +41,3 @@ const deploy = async()=>{
 };
 
 deploy();
-// Deployed Contract address: '0xCC0F8a34B0e4ce5baac80c50E5bB1E4042dDED67'
