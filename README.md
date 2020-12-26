@@ -59,3 +59,23 @@ This part involves the creation of a web application using React and Next.js. Wh
    - `npm run dev`: running the application on `localhost:3000/`
 
 ## Screenshots
+<h3>Homepage</h3>
+<img height="300" src="./__sample/homepage.png">
+<h3>Create new campaign</h3>
+<img height="300" src="./__sample/create.png">
+<h3>Create new campaign: transaction through metamask</h3>
+<img height="300" src="./__sample/trans.png">
+<h3>Campaign Page</h3>
+<img height="300" src="./__sample/camp.png">
+<h3>Fund request page</h3>
+<img height="300" src="./__sample/req.png">
+
+## Contributors
+<table><tr><td align="center">
+        <a href="https://github.com/akcgjc007">
+            <img src="https://avatars2.githubusercontent.com/u/56300182" width="100;" alt="anupam"/>
+            <br />
+            <sub><b>Anupam Kumar</b></sub>
+        </a>
+    </td></tr>
+</table>
