@@ -1,9 +1,0 @@
-{
-    "version": "2.0.0",
-    "tasks": [{
-        "label": "myweb",
-        "command": "npm run dev", // Could be any other shell command
-        "args": [],
-        "type": "shell"
-    }]
-}
