@@ -8,14 +8,19 @@ import factory from '../../eth/factory'
 class CampaignNew extends Component {
 	state = {
 		minimumContribution: '',
-		errorMessage: ''
+		errorMessage: '',
+		successMessage: '',
+		loading: false,
+		showSuccess: false,
 	};
 	
 	onSubmit = async (event)=>{
+		this.setState({loading: true});
 		
 		
 		try {
 			// Form submittal
+			
 			event.preventDefault();
 			const accounts = await new web3.eth.getAccounts();
 			console.log('Accounts returned are: ', accounts);
@@ -26,13 +31,22 @@ class CampaignNew extends Component {
 			});
 			console.log('Transaction successful.');
 			console.log(res);
-
+					
+			this.setState({loading: true});
+			this.setState({
+				successMessage: 
+				'Your transaction was successful.'
+				// 'blockHash: ' + res.blockHash +
+				// 'blockNumber: ' + res.blockNumber +
+				// 'contactAddress' + res.contactAddress +
+				// 'cumulativeGasUsed' + res.cumulativeGasUsed
+			});
+			this.setState({showSuccess: true});
 		} catch (err) {
 			this.setState({errorMessage: err.message});
 		}
 
-
-
+		this.setState({loading: false});
 	}
 
 	render() {
@@ -56,8 +70,13 @@ class CampaignNew extends Component {
 							/>
 						
 						</Form.Field>
+
+
+						<Message positive error={!this.state.showSuccess} header="Transaction successful." content={this.state.successMessage} />
 						<Message error header="Oops!" content={this.state.errorMessage} />
-						<Button primary>Create</Button>
+						
+						
+						<Button loading={this.state.loading} primary>Create</Button>
 					</Form>
 				</Layout>
 
