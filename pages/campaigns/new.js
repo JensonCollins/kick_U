@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Button, Form, Input, Message } from 'semantic-ui-react'
 import Layout from '../../components/Layouts'
+import {Router} from '../../routes'
+
 
 import web3 from '../../eth/web3'
 import factory from '../../eth/factory'
@@ -42,6 +44,8 @@ class CampaignNew extends Component {
 				// 'cumulativeGasUsed' + res.cumulativeGasUsed
 			});
 			this.setState({showSuccess: true});
+
+			Router.pushRoute('/');
 		} catch (err) {
 			this.setState({errorMessage: err.message});
 		}

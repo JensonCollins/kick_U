@@ -1,6 +1,7 @@
 import react from 'react'
 import { Header, Menu, Button } from 'semantic-ui-react'
 import Head from 'next/head'
+import {Link} from '../routes'
 
 export default () => {
     return (
@@ -10,22 +11,28 @@ export default () => {
                 <link async rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
                 <script async src="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
             </Head>
-            <Menu.Item>
-                <Header as="h1">
-                    CrowdCoin Kickstarter
-                </Header>
-            </Menu.Item>
+            <Link route='/'>
+                <a className="item">
+                    CrowdCoin
+                </a>
+            </Link> 
 
 
             <Menu.Menu position="right">
-                <Menu.Item>
-                    <Button>
+                
+                
+                <Link route='/'>
+                    <a className="item">
                         Campaigns
-                    </Button>
-                </Menu.Item>
-                <Menu.Item>
-                    < Button icon='add' />
-                </Menu.Item>
+                    </a>
+                </Link>
+                
+                <Link route='/campaigns/new'>
+                    <a className="item">
+                    < Button floated="right" content='Create a new campaign' icon='add circle' primary />
+                    </a>
+                </Link>
+
             </Menu.Menu>
         </Menu>
     );

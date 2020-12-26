@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import factory from '../eth/factory'
-import { Card, Button, Segment, Header, Container } from 'semantic-ui-react'
+import { Card, Container } from 'semantic-ui-react'
 import Layout from '../components/Layouts'
+
+import {Link} from '../routes'
+
 
 class CampaignIndex extends Component {
   // specially for next.js, as this component cannot be executed on server-side
@@ -17,7 +20,11 @@ class CampaignIndex extends Component {
       address => {
         return {
           header: address,
-          description: <a>View Campaigns</a>,
+          description: (
+            <Link route={`/campaigns/${address}`}>
+            <a>View Campaigns</a>
+            </Link>
+          ),
           fluid: true,
         };
       }
@@ -29,7 +36,6 @@ class CampaignIndex extends Component {
     return (
       <Container>
         <Layout>
-          < Button floated="right" content='Create a new campaign' icon='add circle' labelPosition='right' primary />
           {this.renderCampaigns()}
         </Layout>   
       </Container>
