@@ -18,26 +18,26 @@ contract CampaignFactory{
 contract Campaign {
     struct Request {
         string description;
-        uint256 value;
+        uint value;
         address recipient;
         bool complete;
-        uint256 approvalCount;
+        uint approvalCount;
         mapping(address => bool) approvals;
     }
 
     Request[] public requests;
     address public manager;
-    uint256 public minimumContribution;
+    uint public minimumContribution;
 
     mapping(address => bool) public approvers;
-    uint256 public approversCount;
+    uint public approversCount;
 
     modifier restricted() {
         require(msg.sender == manager);
         _;
     }
 
-    function Campaign(address new_manager, uint256 minimum) public {
+    function Campaign(address new_manager, uint minimum) public {
         manager = new_manager;
         minimumContribution = minimum;
     }
@@ -51,7 +51,7 @@ contract Campaign {
 
     function createRequest(
         string description,
-        uint256  value,
+        uint  value,
         address recipient
     ) public payable restricted {
         Request memory newRequest = Request({
@@ -65,7 +65,7 @@ contract Campaign {
         requests.push(newRequest);
     }
 
-    function approveRequest(uint256 index) public {
+    function approveRequest(uint index) public {
         Request storage request = requests[index];
 
         require(approvers[msg.sender]);
@@ -75,7 +75,7 @@ contract Campaign {
         request.approvalCount++;
     }
 
-    function finalizeRequest(uint256 index) public restricted {
+    function finalizeRequest(uint index) public restricted {
         Request storage request = requests[index];
 
         require(!request.complete);
@@ -86,6 +86,18 @@ contract Campaign {
         request.complete = true;
     }
     function get_arr_size() public view returns (uint){
+        return requests.length;
+    }
+    function getSummary() public view returns (uint, uint, uint, uint, address){
+        return (
+            minimumContribution,
+            this.balance,
+            requests.length,
+            approversCount,
+            manager
+        );
+    }
+    function getRequestCount() public view returns (uint){
         return requests.length;
     }
 }
