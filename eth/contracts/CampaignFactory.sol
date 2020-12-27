@@ -18,26 +18,26 @@ contract CampaignFactory{
 contract Campaign {
     struct Request {
         string description;
-        uint value;
+        uint256 value;
         address recipient;
         bool complete;
-        uint approvalCount;
+        uint256 approvalCount;
         mapping(address => bool) approvals;
     }
 
     Request[] public requests;
     address public manager;
-    uint public minimumContribution;
+    uint256 public minimumContribution;
 
     mapping(address => bool) public approvers;
-    uint public approversCount;
+    uint256 public approversCount;
 
     modifier restricted() {
         require(msg.sender == manager);
         _;
     }
 
-    function Campaign(address new_manager, uint minimum) public {
+    function Campaign(address new_manager, uint256 minimum) public {
         manager = new_manager;
         minimumContribution = minimum;
     }
@@ -51,40 +51,8 @@ contract Campaign {
 
     function createRequest(
         string description,
-        uint  value,
-        address recipimport React, { Component } from 'react'
-import Layout from '../../../components/Layouts'
-
-import { Button, Container } from 'semantic-ui-react';
-import { Link } from '../../../routes'
-
-
-class RequestIndex extends Component {
-	static async getInitialProps(props){
-		const {address} = props.query;
-
-		return { address};
-	}
-	
-	render() {
-		return (
-			<Container>
-					<Layout>
-
-				<h3>All requests</h3>
-				<Link route={`/campaigns/${this.props.address}/requests/new`}>
-					<a>
-						<Button primary>Add request</Button>
-					</a>
-				</Link>
-			</Layout>
-				</Container>
-		);
-	}
-
-}
-
-export default RequestIndexient
+        uint256  value,
+        address recipient
     ) public payable restricted {
         Request memory newRequest = Request({
             description: description,
@@ -97,7 +65,7 @@ export default RequestIndexient
         requests.push(newRequest);
     }
 
-    function approveRequest(uint index) public {
+    function approveRequest(uint256 index) public {
         Request storage request = requests[index];
 
         require(approvers[msg.sender]);
@@ -107,7 +75,7 @@ export default RequestIndexient
         request.approvalCount++;
     }
 
-    function finalizeRequest(uint index) public restricted {
+    function finalizeRequest(uint256 index) public restricted {
         Request storage request = requests[index];
 
         require(!request.complete);
@@ -118,18 +86,6 @@ export default RequestIndexient
         request.complete = true;
     }
     function get_arr_size() public view returns (uint){
-        return requests.length;
-    }
-    function getSummary() public view returns (uint, uint, uint, uint, address){
-        return (
-            minimumContribution,
-            this.balance,
-            requests.length,
-            approversCount,
-            manager
-        );
-    }
-    function getRequestCount() public view returns (uint){
         return requests.length;
     }
 }
