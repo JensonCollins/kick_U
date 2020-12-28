@@ -57,6 +57,8 @@ This part involves the creation of a web application using React and Next.js. Wh
    - `npm run test_eth`: testing smart contract on `ganache-cli` ethereum RPC client
  - Running locally
    - `npm run dev`: running the application on `localhost:3000/`
+ - Contract deployment
+  - For deploying contract, update `deploy.js` with your account seedphrase and endpoint
 
 ## Screenshots
 <h3>Homepage</h3>

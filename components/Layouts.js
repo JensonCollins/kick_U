@@ -1,5 +1,4 @@
 import React from 'react';
-import {Menu} from 'semantic-ui-react'
 import Header from './Header'
 
 export default (props) => {

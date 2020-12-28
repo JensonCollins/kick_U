@@ -4,9 +4,9 @@ const Web3 = require('web3');
 const compiledFactory = require('./build/CampaignFactory.json');
 
 
-const seedPhrase = 'tube odor target consider time veteran derive umbrella cherry inflict hat twelve';
+const seedPhrase = 'YOUR-SEED-PHRASE';
 // Can be used to generate many accounts, Has public and private keys, Sensitive information
-const infuraEndpoint = 'https://kovan.infura.io/v3/19b85f951b5a4440923fa8f61eb27245';
+const infuraEndpoint = 'YOUR-INFURA-ENDPOINT';
 // KOVAN TESTING FROM IFNURA: Endpint for performing the transaction on a specific network
 
 const provider = new HDWalletProvider(seedPhrase, infuraEndpoint);

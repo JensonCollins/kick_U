@@ -1,4 +1,3 @@
-import react from 'react'
 import { Header, Menu, Button } from 'semantic-ui-react'
 import Head from 'next/head'
 import {Link} from '../routes'
