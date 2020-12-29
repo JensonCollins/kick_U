@@ -62,15 +62,15 @@ This part involves the creation of a web application using React and Next.js. Wh
 
 ## Screenshots
 <h3>Homepage</h3>
-<img height="300" src="./__sample/homepage.png">
+<img height="300" src="./__sample/1.png">
 <h3>Create new campaign</h3>
-<img height="300" src="./__sample/create.png">
+<img height="300" src="./__sample/2.png">
 <h3>Create new campaign: transaction through metamask</h3>
-<img height="300" src="./__sample/trans.png">
+<img height="300" src="./__sample/3.png">
 <h3>Campaign Page</h3>
-<img height="300" src="./__sample/camp.png">
+<img height="300" src="./__sample/4.png">
 <h3>Fund request page</h3>
-<img height="300" src="./__sample/req.png">
+<img height="300" src="./__sample/5.png">
 
 ## Contributors
 <table><tr><td align="center">

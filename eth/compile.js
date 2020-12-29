@@ -17,6 +17,6 @@ console.log(output);
 for (let contract in output){
     fs_e.outputJSONSync(
         path.resolve(buildPath, contract.replace(':', '') + '.json'), // Path to the output file
-        output[contract] // the actual sol code
+        output[contract] // compiled code containing what we need
     );
 }
