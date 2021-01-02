@@ -24,6 +24,7 @@ class CampaignNew extends Component {
 			// Form submittal
 			
 			event.preventDefault();
+			
 			const accounts = await new web3.eth.getAccounts();
 			console.log('Accounts returned are: ', accounts);
 			const res = await factory.methods
@@ -34,7 +35,6 @@ class CampaignNew extends Component {
 			console.log('Transaction successful.');
 			console.log(res);
 					
-			this.setState({loading: true});
 			this.setState({
 				successMessage: 
 				'Your transaction was successful.'
@@ -67,6 +67,7 @@ class CampaignNew extends Component {
 								placeholder='0' 
 								
 								value={this.state.minimumContribution}
+								type='number'
 								onChange={event => {
 									this.setState({minimumContribution: event.target.value});
 									this.setState({errorMessage: ''});
