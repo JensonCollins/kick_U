@@ -47,16 +47,16 @@ This part involves the creation of a web application using React and Next.js. Wh
 
 ## How to use
  - Installation
-   - `npm install`: installing required `npm` packages
+   - `npm i`: installing required packages
  - Compilation and deploying the contract
-   - `node compile.js`: compiling the solidity scripts and generating bytecode and ABI
-   - `node deploy.js`: deploying the campaign on a specified network
- - Interacting with a network
-   - `node interact.js`: deploying one campaing instance on a specified network
-- Testing
-   - `npm run test_eth`: testing smart contract on `ganache-cli` ethereum RPC client
+   - `npm run compile`: compiling the solidity scripts and generating bytecode and ABI
+   - `npm run test`: testing smart contract on `ganache-cli` ethereum RPC client
  - Running locally
-   - `npm run dev`: running the application on `localhost:3000/`
+   - `npm run deploy`: deploying the campaign on a specified network
+ - Interacting with a network
+   - `node run int`: deploying one campaing instance on a specified network
+- Testing
+   - `npm run start`: running the application on `localhost:3000/`
  - Contract deployment
   - For deploying contract, update `deploy.js` with your account seedphrase and endpoint
 
