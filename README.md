@@ -2,6 +2,8 @@
 This is the main project in [Ethereum and Solidity: The Complete Developer's Guide](https://www.udemy.com/course/ethereum-and-solidity-the-complete-developers-guide/). 
 
 ## Introduction
+**Check live deployment at [kickstarter-u](https://kickstarter-u-cdaneamqj-akcgjc007.vercel.app/)**
+
 In the traditional Kickstarter system, a manager proposes a project and asks for funds from the public—people around the world pay this manager directly into a currency. 
 
 After that, the manager is supposed to create the product, as proposed and provide benefits to users. But there is nothing in the world stopping the manager from not doing that and running away with all of the money.
